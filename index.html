@@ -4,422 +4,400 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Saurona server-side mod and Discord bridge feature reference." />
 
-    <title>Saurona | Server-Side Guide</title>
+    <title>Saurona SS | Command and Feature Guide</title>
 
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-    <aside class="sidebar">
-        <img src="logo.gif" class="side-logo" alt="Saurona Logo">
-        <h2>Saurona</h2>
-        <p>Server-Side Guide</p>
+    <header class="topbar">
+        <a class="brand" href="#top" aria-label="Saurona home">
+            <img src="logo.gif" alt="Saurona logo">
+            <span>Saurona SS</span>
+        </a>
 
-        <nav>
-            <a href="#overview">Overview</a>
-            <a href="#player-help">Player Help</a>
-            <a href="#identity">Identity</a>
-            <a href="#factions">Factions</a>
-            <a href="#economy">Economy</a>
-            <a href="#progression">Progression</a>
-            <a href="#challenges">Challenges</a>
-            <a href="#world-systems">World Systems</a>
-            <a href="#staff-tools">Staff Tools</a>
+        <nav class="topnav" aria-label="Main navigation">
+            <a href="#features">Features</a>
+            <a href="#commands">Commands</a>
             <a href="#discord">Discord</a>
+            <a href="#setup">Setup</a>
         </nav>
-    </aside>
+    </header>
 
-    <main class="page">
-        <section class="hero" id="overview">
-            <div class="hero-glow"></div>
-            <div class="hero-text-box">
-                <span class="eyebrow">Server-Side Mod</span>
-                <h1>Saurona</h1>
+    <main id="top">
+        <section class="hero">
+            <div class="hero-copy">
+                <span class="eyebrow">Minecraft 1.21.8 Fabric Server Mod</span>
+                <h1>Saurona Server Side</h1>
+                <p>
+                    A custom server-side toolkit for Saurona with player systems, staff controls,
+                    economy tools, item cosmetics, mail, stats, Discord linking, and a polished
+                    chat bridge built around the server's purple and gold identity.
+                </p>
+                <div class="hero-actions" aria-label="Quick links">
+                    <a class="button primary" href="#commands">View Commands</a>
+                    <a class="button ghost" href="https://discord.gg/ttMW46d54h" target="_blank" rel="noreferrer">Join Discord</a>
+                </div>
+            </div>
+
+            <aside class="hero-panel" aria-label="Project snapshot">
+                <img src="logo.gif" alt="">
+                <dl>
+                    <div>
+                        <dt>Version</dt>
+                        <dd>1.0.0</dd>
+                    </div>
+                    <div>
+                        <dt>Minecraft</dt>
+                        <dd>1.21.8</dd>
+                    </div>
+                    <div>
+                        <dt>Runtime</dt>
+                        <dd>Java 21</dd>
+                    </div>
+                    <div>
+                        <dt>Platform</dt>
+                        <dd>Fabric server-side</dd>
+                    </div>
+                </dl>
+            </aside>
+        </section>
+
+        <section class="quick-strip" aria-label="System highlights">
+            <div>
+                <strong>Player Systems</strong>
+                <span>Mail, backpacks, playstyles, stats, rewards, challenges, bounties.</span>
+            </div>
+            <div>
+                <strong>Staff Control</strong>
+                <span>Moderation, vanish, staff chat, spawn bypass, inventories, blacklists.</span>
+            </div>
+            <div>
+                <strong>Discord Bridge</strong>
+                <span>Embeds, account linking, chat relay, faction sync, status messages.</span>
             </div>
         </section>
 
-        <section class="rules-heading">
-            <span>Feature Guide</span>
-            <h2>Commands And Systems</h2>
+        <section class="section intro" id="features">
+            <div class="section-heading">
+                <span class="eyebrow">What It Covers</span>
+                <h2>One mod for the day-to-day server work.</h2>
+                <p>
+                    The server mod owns gameplay state. The bot presents that state cleanly in Discord.
+                    Together they keep moderation, player identity, chat, roles, and server activity in sync.
+                </p>
+            </div>
+
+            <div class="feature-list">
+                <article>
+                    <span class="feature-kicker">01</span>
+                    <h3>Identity And Chat</h3>
+                    <p>Custom prefixes, staff roles, playstyle tags, faction identity, staff chat, filters, silence mode, mentions, vanish, and silent join/leave.</p>
+                </article>
+                <article>
+                    <span class="feature-kicker">02</span>
+                    <h3>Progression</h3>
+                    <p>Backpacks, timed rewards, AFK tracking, weekly challenges, Mortal bounties, abilities, welcome rewards, and starter item checks.</p>
+                </article>
+                <article>
+                    <span class="feature-kicker">03</span>
+                    <h3>Economy And Items</h3>
+                    <p>Bank balances, deposits, withdrawals, transfers, item renames, lore editing, spacer lines, engravings, and creative cost bypasses.</p>
+                </article>
+                <article>
+                    <span class="feature-kicker">04</span>
+                    <h3>World Management</h3>
+                    <p>Spawn protection, generators, recipes, music zones, collectibles, custom traders, weather votes, announcements, and item blacklists.</p>
+                </article>
+            </div>
         </section>
 
-        <section class="feature-grid" id="player-help">
-            <article class="card wide-card">
-                <span class="card-number">01</span>
-                <h2>Player Help</h2>
-                <p>The mod adds a paged command guide in game.</p>
-                <div class="command-grid">
-                    <code>/help</code>
-                    <code>/help 2</code>
-                    <code>/help page &lt;page&gt;</code>
-                    <code>/commands</code>
-                    <code>/commands 2</code>
-                    <code>/commands page &lt;page&gt;</code>
-                </div>
-            </article>
+        <section class="section command-section" id="commands">
+            <div class="section-heading">
+                <span class="eyebrow">Command Reference</span>
+                <h2>Player commands first, staff tools after.</h2>
+                <p>Most commands also appear in game through <code>/help</code>, <code>/commands</code>, and <code>/ss</code>.</p>
+            </div>
 
-            <article class="card">
-                <h2>Player Utility</h2>
-                <div class="command-grid">
-                    <code>/stats</code>
-                    <code>/stats &lt;player&gt;</code>
-                    <code>/stats top &lt;stat&gt;</code>
-                    <code>/mail list</code>
-                    <code>/mail send &lt;player&gt; &lt;message&gt;</code>
-                    <code>/mail gift &lt;player&gt; &lt;message&gt;</code>
-                    <code>/mail claim &lt;id&gt;</code>
-                    <code>/mail delete &lt;id&gt;</code>
-                </div>
-            </article>
+            <div class="command-layout">
+                <article class="command-card">
+                    <h3>Player Essentials</h3>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <th><code>/help</code></th>
+                                <td>Shows the paged player command guide.</td>
+                            </tr>
+                            <tr>
+                                <th><code>/link &lt;code&gt;</code></th>
+                                <td>Links a Minecraft account to Discord.</td>
+                            </tr>
+                            <tr>
+                                <th><code>/stats [player]</code></th>
+                                <td>Shows server stats for yourself or another player.</td>
+                            </tr>
+                            <tr>
+                                <th><code>/mail</code></th>
+                                <td>Opens the inbox with claim and delete buttons.</td>
+                            </tr>
+                            <tr>
+                                <th><code>/mail send</code></th>
+                                <td>Sends a message to another player.</td>
+                            </tr>
+                            <tr>
+                                <th><code>/mail gift</code></th>
+                                <td>Mails the item in your main hand as a gift.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </article>
 
-            <article class="card">
-                <h2>Item Cosmetics</h2>
-                <p>Rename and engrave which use coins.</p>
-                <div class="command-grid">
-                    <code>/rename &lt;name&gt;</code>
-                    <code>/rename clear</code>
-                    <code>/engrave</code>
+                <article class="command-card">
+                    <h3>Economy And Storage</h3>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <th><code>/bank</code></th>
+                                <td>Shows bank balance and bank tools.</td>
+                            </tr>
+                            <tr>
+                                <th><code>/dep all</code></th>
+                                <td>Deposits all coins from inventory.</td>
+                            </tr>
+                            <tr>
+                                <th><code>/wdraw &lt;amount&gt;</code></th>
+                                <td>Withdraws coins from the bank.</td>
+                            </tr>
+                            <tr>
+                                <th><code>/transfer</code></th>
+                                <td>Sends bank coins to another player.</td>
+                            </tr>
+                            <tr>
+                                <th><code>/backpack</code></th>
+                                <td>Opens or manages the player's backpack.</td>
+                            </tr>
+                            <tr>
+                                <th><code>/craft</code></th>
+                                <td>Opens a crafting table once unlocked.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </article>
+
+                <article class="command-card">
+                    <h3>Factions And Groups</h3>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <th><code>/faction info</code></th>
+                                <td>Shows faction leader, members, and details.</td>
+                            </tr>
+                            <tr>
+                                <th><code>/faction home</code></th>
+                                <td>Teleports to the faction home.</td>
+                            </tr>
+                            <tr>
+                                <th><code>/faction sethome</code></th>
+                                <td>Lets leaders set the faction home.</td>
+                            </tr>
+                            <tr>
+                                <th><code>/fellowship</code></th>
+                                <td>Manages invites, chat, PvP, ownership, and members.</td>
+                            </tr>
+                            <tr>
+                                <th><code>/fc</code></th>
+                                <td>Short command for fellowship chat.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </article>
+
+                <article class="command-card">
+                    <h3>Playstyle And Progress</h3>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <th><code>/playstyle</code></th>
+                                <td>Checks Haven or Mortal status.</td>
+                            </tr>
+                            <tr>
+                                <th><code>/mortal</code></th>
+                                <td>Starts the Mortal oath confirmation flow.</td>
+                            </tr>
+                            <tr>
+                                <th><code>/abilities</code></th>
+                                <td>Shows unlocked ability uses.</td>
+                            </tr>
+                            <tr>
+                                <th><code>/bounty</code></th>
+                                <td>Views or places Mortal bounties.</td>
+                            </tr>
+                            <tr>
+                                <th><code>/challenges</code></th>
+                                <td>Shows weekly challenge progress.</td>
+                            </tr>
+                            <tr>
+                                <th><code>/playtime</code></th>
+                                <td>Shows active playtime reward progress.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </article>
+            </div>
+
+            <div class="staff-band">
+                <div>
+                    <span class="eyebrow">Staff Suite</span>
+                    <h3>Moderation and management without leaving the server.</h3>
+                    <p>
+                        Staff roles are intentionally split: admins and managers get elevated server access,
+                        while moderation roles stay focused on moderation work.
+                    </p>
                 </div>
-            </article>
+                <div class="chip-grid" aria-label="Staff command groups">
+                    <span>/ss reload</span>
+                    <span>/staffchat</span>
+                    <span>/vanish</span>
+                    <span>/silentjoinleave</span>
+                    <span>/heal</span>
+                    <span>/gm</span>
+                    <span>/stp</span>
+                    <span>/otp</span>
+                    <span>/view inv</span>
+                    <span>/view echest</span>
+                    <span>/view backpack</span>
+                    <span>/tempban</span>
+                    <span>/mute</span>
+                    <span>/unmute</span>
+                    <span>/chatfilter</span>
+                    <span>/lore</span>
+                    <span>/rename</span>
+                    <span>/engrave</span>
+                    <span>/unbreakable</span>
+                    <span>/itemblacklist</span>
+                    <span>/gen</span>
+                    <span>/musiczone</span>
+                    <span>/trader</span>
+                    <span>/recipes</span>
+                    <span>/announcements</span>
+                </div>
+            </div>
         </section>
 
-        <section class="feature-grid" id="identity">
-            <article class="card wide-card">
-                <span class="card-number">02</span>
-                <h2>Prefixes And Roles</h2>
-                <p>Chat prefixes are hex-colored and ordered so playstyle appears first, then the main identity prefix, then faction leader when applicable.</p>
-                <div class="meta-grid">
-                    <div>
-                        <strong>Chat Order</strong>
-                        <span>[H]/[M] - staff, faction, or Wanderer - [L] - name.</span>
+        <section class="section discord-section" id="discord">
+            <div class="section-heading">
+                <span class="eyebrow">ME-BOT</span>
+                <h2>The Discord side of the server.</h2>
+                <p>
+                    The bot handles Discord API work while the Minecraft mod remains the source of truth
+                    for player identity, punishments, stats, factions, and linked accounts.
+                </p>
+            </div>
+
+            <div class="discord-grid">
+                <article>
+                    <h3>Chat Bridge</h3>
+                    <p>Discord and Minecraft chat relay with polished embeds for player messages, player events, deaths, command results, and server status.</p>
+                    <ul>
+                        <li>Purple styling for player-facing bridge messages.</li>
+                        <li>Gold styling for server state and server command responses.</li>
+                        <li>Link blocking that removes blocked links and warns the user.</li>
+                    </ul>
+                </article>
+
+                <article>
+                    <h3>Account Sync</h3>
+                    <p>Players run Discord <code>/link</code>, then finish in Minecraft with <code>/link &lt;code&gt;</code>.</p>
+                    <ul>
+                        <li>Linked Discord role assignment.</li>
+                        <li>Minecraft-driven nickname sync.</li>
+                        <li>Faction, mute, ban, Haven, Mortal, and Wanderer role mirroring.</li>
+                    </ul>
+                </article>
+
+                <article>
+                    <h3>Bot Utilities</h3>
+                    <p>ME-BOT also carries the Discord-only server tools around the Minecraft bridge.</p>
+                    <ul>
+                        <li>Tickets, transcripts, logs, moderation helpers, and invite tracking.</li>
+                        <li>Sticky messages, welcome role/message support, and temporary voice channels.</li>
+                        <li>Minecraft stats and game moderation slash commands.</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <section class="section system-section">
+            <div class="section-heading">
+                <span class="eyebrow">Server Systems</span>
+                <h2>Built for repeated server work.</h2>
+            </div>
+
+            <div class="system-grid">
+                <article>
+                    <h3>Mail</h3>
+                    <p>Player mail supports text messages, item gifts, clickable inbox actions, new-mail alerts, and login reminders.</p>
+                </article>
+                <article>
+                    <h3>Item Cosmetics</h3>
+                    <p>Renames default to Saurona gold, lore defaults to gray, and engravings stay at the bottom of item lore.</p>
+                </article>
+                <article>
+                    <h3>Inventory Viewing</h3>
+                    <p>Staff can view online and offline inventories, ender chests, and backpacks, with unavailable inventory slots blocked visually.</p>
+                </article>
+                <article>
+                    <h3>World Extras</h3>
+                    <p>Generators, custom traders, music zones, collectibles, weather voting, announcements, recipe controls, and item blacklist tools.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="section setup-section" id="setup">
+            <div class="section-heading">
+                <span class="eyebrow">Setup Notes</span>
+                <h2>Build the mod, run the bot, connect both sides.</h2>
+            </div>
+
+            <div class="setup-grid">
+                <article>
+                    <h3>Requirements</h3>
+                    <ul>
+                        <li>Minecraft 1.21.8</li>
+                        <li>Fabric Loader 0.19.3 or newer</li>
+                        <li>Fabric API for Minecraft 1.21.8</li>
+                        <li>Java 21</li>
+                        <li>Node.js for ME-BOT</li>
+                    </ul>
+                </article>
+
+                <article>
+                    <h3>Build Output</h3>
+                    <p>The Fabric build creates the server mod jar in:</p>
+                    <pre><code>build/libs/server-side-1.0.0.jar</code></pre>
+                </article>
+
+                <article>
+                    <h3>Discord Connection</h3>
+                    <p>Both sides must use the same shared secret. The mod and bot each point their API base URL at the other service.</p>
+                    <div class="key-pairs">
+                        <span>Minecraft: <code>discordIntegrationSecret</code></span>
+                        <span>ME-BOT: <code>minecraft.sharedSecret</code></span>
                     </div>
-                    <div>
-                        <strong>Tab List</strong>
-                        <span>Only the main prefix shows. Staff can be kept near the top.</span>
-                    </div>
-                    <div>
-                        <strong>Default</strong>
-                        <span>New players receive the Wanderer prefix until they join a faction.</span>
-                    </div>
-                </div>
-                <div class="command-grid">
-                    <code>/prefixcheck &lt;player&gt;</code>
-                    <code>/staff add &lt;player&gt; &lt;role&gt;</code>
-                    <code>/staff remove &lt;player&gt;</code>
-                </div>
-            </article>
-
-            <article class="card">
-                <h2>Playstyles</h2>
-                <p>Haven is the default. Mortal is a permanent opt-in using the Mortal oath confirmation flow.</p>
-                <div class="section-grid">
-                    <div class="mini-card">
-                        <h3>Haven [H]</h3>
-                        <p>PvP protected against players, keep inventory enabled, and excluded from Mortal-only bounty play.</p>
-                    </div>
-                    <div class="mini-card">
-                        <h3>Mortal [M]</h3>
-                        <p>PvP enabled with other Mortals, inventory drops on death, and eligible for bounties.</p>
-                    </div>
-                </div>
-                <div class="command-grid">
-                    <code>/playstyle</code>
-                    <code>/mortal</code>
-                    <code>/mortal confirm</code>
-                    <code>/mortal reject</code>
-                    <code>/playstyle set &lt;player&gt; &lt;haven|mortal&gt;</code>
-                </div>
-            </article>
+                </article>
+            </div>
         </section>
-
-        <section class="feature-grid" id="factions">
-            <article class="card wide-card">
-                <span class="card-number">03</span>
-                <h2>Factions And Faction Homes</h2>
-                <p>Faction homes are tied to the faction itself, not the current leader.</p>
-                <div class="command-grid">
-                    <code>/faction info</code>
-                    <code>/faction info page &lt;page&gt;</code>
-                    <code>/faction info &lt;faction&gt;</code>
-                    <code>/faction info &lt;faction&gt; &lt;page&gt;</code>
-                    <code>/faction home</code>
-                    <code>/fhome</code>
-                    <code>/faction sethome</code>
-                    <code>/faction homeinfo</code>
-                    <code>/faction clearhome</code>
-                </div>
-            </article>
-
-            <article class="card">
-                <h2>Faction Staff</h2>
-                <div class="command-grid">
-                    <code>/faction set &lt;player&gt; &lt;faction&gt;</code>
-                    <code>/faction remove &lt;player&gt;</code>
-                    <code>/faction leader set &lt;faction&gt; &lt;player&gt;</code>
-                    <code>/faction leader remove &lt;faction&gt;</code>
-                    <code>/factionadmin sethome &lt;faction&gt;</code>
-                    <code>/factionadmin clearhome &lt;faction&gt;</code>
-                    <code>/factionadmin homeinfo &lt;faction&gt;</code>
-                </div>
-            </article>
-
-            <article class="card">
-                <h2>Fellowships</h2>
-                <p>Small player groups with invites, private chat, PvP toggle, ownership transfer, and member management.</p>
-                <div class="command-grid">
-                    <code>/fellowship create &lt;name&gt;</code>
-                    <code>/fellowship info</code>
-                    <code>/fellowship invite &lt;player&gt;</code>
-                    <code>/fellowship accept &lt;name&gt;</code>
-                    <code>/fellowship chat [message]</code>
-                    <code>/fc [message]</code>
-                    <code>/fellowship pvp</code>
-                    <code>/fellowship leave</code>
-                </div>
-            </article>
-        </section>
-
-        <section class="feature-grid" id="economy">
-            <article class="card wide-card">
-                <span class="card-number">04</span>
-                <h2>Economy And Bank</h2>
-                <p>Coins can be kept as items or deposited into the virtual bank. Short aliases are included for the commands players use often.</p>
-                <div class="command-grid">
-                    <code>/bank</code>
-                    <code>/bank top</code>
-                    <code>/bank autodeposit</code>
-                    <code>/balance</code>
-                    <code>/balance &lt;player&gt;</code>
-                    <code>/deposit &lt;amount&gt;</code>
-                    <code>/deposit all</code>
-                    <code>/dep all</code>
-                    <code>/withdraw &lt;amount&gt;</code>
-                    <code>/wdraw &lt;amount&gt;</code>
-                    <code>/transfer &lt;player&gt; &lt;amount&gt;</code>
-                    <code>/baltop</code>
-                    <code>/autodeposit</code>
-                </div>
-            </article>
-        </section>
-
-        <section class="feature-grid" id="progression">
-            <article class="card wide-card">
-                <span class="card-number">05</span>
-                <h2>Backpacks, Playtime, And AFK</h2>
-                <p>Players start with a 1-row backpack and can progress up to 6 rows through time-played rewards. AFK time does not count toward playtime rewards.</p>
-                <ul>
-                    <li>Rewards happen every 10 hours up to 100 hours, every 25 hours from 100 to 200, then every 50 hours after 200.</li>
-                    <li><code>/craft</code> and <code>/ct</code> open a normal crafting table screen after the reward unlock, and staff can use them freely.</li>
-                    <li>AFK state is tracked by inactivity and shown in game.</li>
-                </ul>
-                <div class="command-grid">
-                    <code>/backpack</code>
-                    <code>/bp</code>
-                    <code>/backpack tier</code>
-                    <code>/backpack upgrade</code>
-                    <code>/backpack downgrade</code>
-                    <code>/timedrewards</code>
-                    <code>/playtime</code>
-                    <code>/craft</code>
-                    <code>/ct</code>
-                </div>
-            </article>
-
-            <article class="card">
-                <h2>Starter Items And Spawn Protection</h2>
-                <p>The mod can require linked players to keep the Middle-earth map and Starlight Phial before leaving spawn, and can protect spawn from PvP or block interaction based on config.</p>
-                <ul>
-                    <li><code>middle-earth:middle_earth_map</code></li>
-                    <li><code>middle-earth:starlight_phial</code></li>
-                </ul>
-            </article>
-        </section>
-
-        <section class="feature-grid" id="challenges">
-            <article class="card wide-card">
-                <span class="card-number">06</span>
-                <h2>Weekly Challenges And Mortal Bounties</h2>
-                <p>Weekly challenges track clear objectives like travel, block breaking, mining, chopping, harvesting, placing, playtime, and mob kills. Mortal bounties add PvP coin rewards for Mortal players.</p>
-                <div class="command-grid">
-                    <code>/challenges</code>
-                    <code>/bounty</code>
-                    <code>/bounty list</code>
-                    <code>/bounty place &lt;player&gt; &lt;amount&gt;</code>
-                    <code>/bounty add &lt;player&gt; &lt;amount&gt;</code>
-                    <code>/bounty view &lt;player&gt;</code>
-                    <code>/bounty clear &lt;player&gt;</code>
-                    <code>/ability</code>
-                    <code>/abilities</code>
-                    <code>/ability trophy apply</code>
-                    <code>/ability trophy remove</code>
-                    <code>/ability trophy item [player]</code>
-                    <code>/ability trophy grant &lt;player&gt;</code>
-                    <code>/ability trophy revoke &lt;player&gt;</code>
-                    <code>/ability trophy uses set &lt;player&gt; &lt;uses&gt;</code>
-                </div>
-            </article>
-        </section>
-
-        <section class="feature-grid" id="world-systems">
-            <article class="card wide-card">
-                <span class="card-number">07</span>
-                <h2>World Systems</h2>
-                <p>These systems handle the server-side extras that shape the world: recipe blocking, NPC traders, generators, music zones, collectibles, weather voting, and announcements.</p>
-            </article>
-
-            <article class="card">
-                <h2>Recipes And Traders</h2>
-                <div class="command-grid">
-                    <code>/recipes list</code>
-                    <code>/recipes disable &lt;recipe&gt;</code>
-                    <code>/recipes enable &lt;recipe&gt;</code>
-                    <code>/recipes reload</code>
-                    <code>/trader create &lt;id&gt; &lt;entity&gt;</code>
-                    <code>/trader remove &lt;id&gt;</code>
-                    <code>/trader title &lt;id&gt; &lt;title&gt;</code>
-                    <code>/trader list</code>
-                    <code>/trader info &lt;id&gt;</code>
-                    <code>/trader trade add &lt;id&gt; &lt;buy&gt; &lt;count&gt; &lt;sell&gt; &lt;count&gt;</code>
-                    <code>/trader trade clear &lt;id&gt;</code>
-                </div>
-            </article>
-
-            <article class="card">
-                <h2>Generators, Music, And Collectibles</h2>
-                <div class="command-grid">
-                    <code>/gen list</code>
-                    <code>/gen add</code>
-                    <code>/gen remove</code>
-                    <code>/gen info</code>
-                    <code>/gen export</code>
-                    <code>/musiczone list</code>
-                    <code>/musiczone info &lt;id&gt;</code>
-                    <code>/musiczone reload</code>
-                    <code>/collectible list</code>
-                    <code>/collectible info</code>
-                    <code>/collectible progress &lt;player&gt;</code>
-                    <code>/collectible completed &lt;collection&gt;</code>
-                </div>
-            </article>
-
-            <article class="card">
-                <h2>Votes And Announcements</h2>
-                <div class="command-grid">
-                    <code>/weathervote yes</code>
-                    <code>/weathervote no</code>
-                    <code>/wv y</code>
-                    <code>/wv n</code>
-                    <code>/announcements reload</code>
-                    <code>/announcements enable</code>
-                    <code>/announcements disable</code>
-                </div>
-            </article>
-        </section>
-
-        <section class="feature-grid" id="staff-tools">
-            <article class="card wide-card">
-                <span class="card-number">08</span>
-                <h2>Staff Tools</h2>
-                <p>Staff tools use vanilla OP levels plus the Saurona staff-role permissions. Listed commands are actual server-side mod commands.</p>
-            </article>
-
-            <article class="card">
-                <h2>Moderation And Chat</h2>
-                <div class="command-grid">
-                    <code>/tempban &lt;player&gt; &lt;duration&gt; [reason]</code>
-                    <code>/tempban &lt;player&gt; &lt;duration&gt; -s [reason]</code>
-                    <code>/mute &lt;player&gt; &lt;duration&gt; [reason]</code>
-                    <code>/mute &lt;player&gt; pds [reason]</code>
-                    <code>/unmute &lt;player&gt;</code>
-                    <code>/punishments</code>
-                    <code>/chatfilter add &lt;word&gt;</code>
-                    <code>/chatfilter remove &lt;word&gt;</code>
-                    <code>/chatfilter check &lt;text&gt;</code>
-                    <code>/chatfilter list</code>
-                    <code>/broadcast &lt;message&gt;</code>
-                    <code>/silence</code>
-                </div>
-            </article>
-
-            <article class="card">
-                <h2>Utility And Movement</h2>
-                <div class="command-grid">
-                    <code>/ss reload</code>
-                    <code>/serverside reload</code>
-                    <code>/heal [player]</code>
-                    <code>/gm &lt;0|1|2|3&gt;</code>
-                    <code>/stp &lt;player&gt;</code>
-                    <code>/otp &lt;player&gt;</code>
-                    <code>/viewdistance &lt;chunks&gt;</code>
-                    <code>/vanish</code>
-                    <code>/silentjoinleave</code>
-                    <code>/staffchat &lt;message&gt;</code>
-                    <code>/sc &lt;message&gt;</code>
-                    <code>/staffchatbridge</code>
-                    <code>/scbridge</code>
-                </div>
-            </article>
-
-            <article class="card">
-                <h2>Fly, Items, And Launch Controls</h2>
-                <div class="command-grid">
-                    <code>/fly</code>
-                    <code>/fly on</code>
-                    <code>/fly off</code>
-                    <code>/fly give &lt;player&gt;</code>
-                    <code>/fly take &lt;player&gt;</code>
-                    <code>/fly ban &lt;player&gt;</code>
-                    <code>/fly unban &lt;player&gt;</code>
-                    <code>/fly enable</code>
-                    <code>/fly disable</code>
-                    <code>/fly status &lt;player&gt;</code>
-                    <code>/itemblacklist add &lt;item&gt;</code>
-                    <code>/itemblacklist remove &lt;item&gt;</code>
-                    <code>/itemblacklist list</code>
-                    <code>/itemblacklist reload</code>
-                    <code>/lore &lt;text&gt;</code>
-                    <code>/lore clear</code>
-                    <code>/unbreakable</code>
-                    <code>/welcome enable</code>
-                    <code>/welcome disable</code>
-                </div>
-            </article>
-        </section>
-
-        <section class="feature-grid" id="discord">
-            <article class="card wide-card">
-                <span class="card-number">09</span>
-                <h2>Discord And Account Linking</h2>
-                <p>The server-side mod exposes the Minecraft half of Discord linking and supports staff verification for edge cases. The bot handles Discord commands, role sync, bridge messages, and Discord-side automation.</p>
-                <div class="command-grid">
-                    <code>/link &lt;code&gt;</code>
-                    <code>/link verify &lt;player&gt;</code>
-                </div>
-                <ul>
-                    <li>Unlinked players can be restricted until linked or staff verified.</li>
-                    <li>Haven, Mortal, Wanderer, and faction role sync are handled through the bot integration.</li>
-                    <li>Faction changes can remove the Wanderer Discord role.</li>
-                </ul>
-            </article>
-
-            <article class="card">
-                <h2>Extra Checks</h2>
-                <p>The alt checker records and compares connection data so staff can inspect possible alternate accounts.</p>
-                <div class="command-grid">
-                    <code>/possiblealts &lt;player&gt;</code>
-                </div>
-            </article>
-        </section>
-
-        <footer class="footer">
-            <img src="logo.gif" alt="Saurona Logo">
-            <p>Saurona</p>
-            <span>Server-side command and feature reference.</span>
-            <a href="https://discord.gg/ttMW46d54h" target="_blank">Join the Discord</a>
-        </footer>
     </main>
+
+    <footer class="footer">
+        <img src="logo.gif" alt="">
+        <p>Saurona Server Side</p>
+        <span>Command and feature reference for the Minecraft mod and Discord bridge.</span>
+        <a href="https://discord.gg/ttMW46d54h" target="_blank" rel="noreferrer">Join the Discord</a>
+    </footer>
 </body>
 
 </html>
